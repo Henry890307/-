@@ -1,0 +1,1276 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>瓏瑋系統櫃工廠｜林口系統櫃設計</title>
+  <meta name="description" content="瓏瑋系統櫃工廠提供丈量、設計、工廠製作、板材選色與現場安裝。">
+  <style>
+    :root {
+      --blue: #174867;
+      --deep: #0d3149;
+      --ink: #152f3f;
+      --sand: #d5c2a4;
+      --paper: #f2f1ee;
+      --white: #fff;
+      --muted: #64717a;
+      --dark: #353332;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Microsoft JhengHei", "Noto Sans TC", Arial, sans-serif;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .announcement {
+      min-height: 54px;
+      padding: 10px 6vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      color: white;
+      background: var(--blue);
+      font-size: 14px;
+    }
+
+    .announcement a {
+      padding: 8px 18px;
+      border: 1px solid rgba(255,255,255,.75);
+    }
+
+    .hero {
+      min-height: 740px;
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(5,24,35,.68), rgba(5,24,35,.12)),
+        url("images/hero-factory.png") center/cover;
+    }
+
+    .header {
+      width: min(1280px, 90vw);
+      height: 96px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,.35);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand img {
+      width: 62px;
+      height: 56px;
+      padding: 5px;
+      object-fit: contain;
+      background: var(--deep);
+    }
+
+    .brand strong {
+      display: block;
+      font-size: 23px;
+      letter-spacing: .1em;
+    }
+
+    .brand small {
+      font-size: 9px;
+      letter-spacing: .23em;
+    }
+
+    .nav {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    .hero-content {
+      width: min(1280px, 90vw);
+      margin: auto;
+      padding-top: 140px;
+    }
+
+    .hero-content p {
+      letter-spacing: .24em;
+    }
+
+    .hero h1 {
+      margin: 20px 0 40px;
+      font-family: serif;
+      font-size: clamp(58px, 7vw, 100px);
+      line-height: 1.12;
+      letter-spacing: .07em;
+    }
+
+    .actions {
+      display: flex;
+      gap: 14px;
+    }
+
+    .button {
+      padding: 16px 25px;
+      border: 1px solid white;
+      font-weight: 700;
+    }
+
+    .button.primary {
+      color: var(--deep);
+      background: white;
+    }
+
+    .statement {
+      padding: 50px 20px;
+      color: white;
+      background: var(--dark);
+      text-align: center;
+    }
+
+    .statement p,
+    .eyebrow {
+      color: var(--sand);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .25em;
+    }
+
+    .statement h2 {
+      margin: 12px 0 0;
+      font-family: serif;
+      font-size: 42px;
+      letter-spacing: .08em;
+    }
+
+    .conversion {
+      width: min(1280px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: white;
+      box-shadow: 0 18px 50px rgba(19,48,66,.1);
+    }
+
+    .conversion div,
+    .conversion a {
+      min-height: 125px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid #ddd;
+    }
+
+    .conversion strong {
+      margin-bottom: 8px;
+      font-family: serif;
+      font-size: 19px;
+    }
+
+    .conversion span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .conversion a {
+      color: white;
+      background: var(--blue);
+    }
+
+    .conversion a span {
+      margin-top: 8px;
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .section {
+      width: min(1120px, 88vw);
+      margin: auto;
+      padding: 110px 0;
+    }
+
+    .heading {
+      margin-bottom: 48px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 70px;
+      align-items: end;
+    }
+
+    .heading h2 {
+      margin: 0;
+      font-family: serif;
+      font-size: clamp(34px, 4vw, 52px);
+    }
+
+    .heading > p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .service {
+      padding: 30px 25px;
+      background: white;
+      border-top: 4px solid var(--blue);
+    }
+
+    .service span {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .service h3 {
+      margin: 35px 0 14px;
+      font-family: serif;
+      font-size: 24px;
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .dark-section {
+      color: white;
+      background: var(--deep);
+    }
+
+    .dark-section .heading > p {
+      color: rgba(255,255,255,.7);
+    }
+
+    .material-group {
+      margin-bottom: 65px;
+    }
+
+    .carousel-header {
+      margin-bottom: 22px;
+      padding-bottom: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #c9c7c0;
+    }
+
+    .dark-section .carousel-header {
+      border-color: rgba(255,255,255,.25);
+    }
+
+    .carousel-header h3 {
+      margin: 0;
+      font-family: serif;
+      font-size: 24px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    .controls button {
+      width: 46px;
+      height: 42px;
+      border: 1px solid #aaa;
+      color: var(--blue);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .dark-section .controls button {
+      color: white;
+      border-color: rgba(255,255,255,.5);
+    }
+
+    .controls button:hover {
+      color: white;
+      background: var(--blue);
+    }
+
+    .carousel {
+      padding: 3px 2px 22px;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: calc((100% - 54px) / 4);
+      gap: 18px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-color: var(--sand) transparent;
+    }
+
+    .card {
+      min-width: 0;
+      color: var(--ink);
+      background: white;
+      box-shadow: 0 8px 24px rgba(20,42,55,.1);
+      scroll-snap-align: start;
+      cursor: pointer;
+    }
+
+    .card-image {
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      background: #ddd;
+    }
+
+    .card-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform .35s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.035);
+    }
+
+    .card-info {
+      padding: 17px;
+    }
+
+    .card-info span {
+      color: var(--blue);
+      font-family: Georgia, serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+    }
+
+    .card-info h4 {
+      margin: 8px 0 0;
+      font-family: serif;
+      font-size: 19px;
+    }
+
+    .card-info small {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+    }
+
+    .card-link {
+      margin: 0 17px 17px;
+      padding-top: 12px;
+      display: block;
+      border-top: 1px solid #ddd;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .dark-section .hint {
+      color: rgba(255,255,255,.65);
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid #bbb;
+      border-bottom: 1px solid #bbb;
+    }
+
+    .benefit {
+      min-height: 250px;
+      padding: 30px 25px;
+      border-right: 1px solid #bbb;
+    }
+
+    .benefit:last-child {
+      border-right: 0;
+    }
+
+    .benefit span {
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .benefit h3 {
+      margin: 50px 0 15px;
+      font-family: serif;
+      font-size: 23px;
+    }
+
+    .benefit p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .process {
+      padding: 100px max(6vw, 25px);
+      color: white;
+      background: var(--dark);
+    }
+
+    .process-inner {
+      width: min(1120px, 100%);
+      margin: auto;
+    }
+
+    .steps {
+      margin-top: 45px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.2);
+    }
+
+    .step {
+      min-height: 180px;
+      padding: 28px;
+      background: var(--dark);
+    }
+
+    .step span {
+      color: var(--sand);
+    }
+
+    .step h3 {
+      margin: 35px 0 10px;
+      font-family: serif;
+      font-size: 22px;
+    }
+
+    .step p {
+      color: rgba(255,255,255,.65);
+      line-height: 1.8;
+    }
+
+    .faq details {
+      border-top: 1px solid #bbb;
+    }
+
+    .faq details:last-child {
+      border-bottom: 1px solid #bbb;
+    }
+
+    .faq summary {
+      padding: 25px 50px 25px 0;
+      font-family: serif;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .faq details p {
+      margin-top: 0;
+      padding-bottom: 25px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .contact {
+      padding: 100px max(7vw, 25px);
+      color: white;
+      background: var(--blue);
+    }
+
+    .contact-inner {
+      width: min(1120px, 100%);
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 70px;
+    }
+
+    .contact h2 {
+      margin: 10px 0 25px;
+      font-family: serif;
+      font-size: 50px;
+    }
+
+    .phone {
+      margin-top: 30px;
+      padding: 22px;
+      display: inline-flex;
+      flex-direction: column;
+      border: 1px solid rgba(255,255,255,.7);
+    }
+
+    .phone strong {
+      margin-top: 6px;
+      font-size: 30px;
+    }
+
+    .checklist {
+      padding: 28px;
+      border-top: 1px solid rgba(255,255,255,.5);
+      border-bottom: 1px solid rgba(255,255,255,.5);
+    }
+
+    .checklist li {
+      margin: 13px 0;
+    }
+
+    .footer {
+      padding: 65px 7vw 90px;
+      color: rgba(255,255,255,.75);
+      background: #102a3a;
+    }
+
+    .footer strong {
+      display: block;
+      margin-bottom: 15px;
+      color: white;
+      font-size: 22px;
+    }
+
+    .floating {
+      position: fixed;
+      z-index: 40;
+      right: 20px;
+      bottom: 20px;
+      padding: 13px 18px;
+      color: white;
+      background: var(--blue);
+      box-shadow: 0 10px 25px rgba(0,0,0,.3);
+    }
+
+    .modal {
+      position: fixed;
+      z-index: 100;
+      inset: 0;
+      padding: 30px;
+      display: none;
+      overflow-y: auto;
+      background: rgba(5,20,29,.88);
+    }
+
+    .modal.open {
+      display: block;
+    }
+
+    .modal-panel {
+      width: min(1160px, 100%);
+      margin: auto;
+      background: var(--paper);
+    }
+
+    .modal-top {
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      color: white;
+      background: var(--deep);
+    }
+
+    .modal-top h2 {
+      margin: 5px 0 0;
+    }
+
+    .modal-close {
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255,255,255,.7);
+      color: white;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .modal-content {
+      padding: 30px;
+    }
+
+    .modal-swatch {
+      max-width: 420px;
+      margin-bottom: 30px;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+
+    .scene-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .scene {
+      background: white;
+    }
+
+    .scene img {
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+
+    .scene h3 {
+      margin: 0;
+      padding: 18px;
+      font-family: serif;
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        display: none;
+      }
+
+      .conversion,
+      .services,
+      .benefits {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .carousel {
+        grid-auto-columns: calc((100% - 36px) / 3);
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .hero {
+        min-height: 650px;
+      }
+
+      .header {
+        width: calc(100% - 30px);
+      }
+
+      .brand strong {
+        font-size: 17px;
+      }
+
+      .hero-content {
+        width: calc(100% - 36px);
+        padding-top: 100px;
+      }
+
+      .hero h1 {
+        font-size: 52px;
+      }
+
+      .actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .conversion,
+      .services,
+      .benefits,
+      .steps,
+      .contact-inner,
+      .scene-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .conversion {
+        width: 100%;
+      }
+
+      .heading {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .section {
+        width: calc(100% - 36px);
+        padding: 75px 0;
+      }
+
+      .carousel {
+        grid-auto-columns: 78%;
+        gap: 12px;
+      }
+
+      .benefit {
+        min-height: auto;
+        border-right: 0;
+        border-bottom: 1px solid #bbb;
+      }
+
+      .contact h2 {
+        font-size: 38px;
+      }
+
+      .modal {
+        padding: 10px;
+      }
+
+      .modal-content {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="announcement">
+    <span>歡迎洽詢系統櫃規劃與免費初步估價</span>
+    <a href="tel:0921307322">立即洽詢</a>
+  </div>
+
+  <section class="hero" id="top">
+    <header class="header">
+      <a class="brand" href="#top">
+        <img src="images/do-design-logo-v2.svg" alt="Do design Logo">
+        <span>
+          <strong>瓏瑋系統櫃工廠</strong>
+          <small>LONG WEI CABINET</small>
+        </span>
+      </a>
+
+      <nav class="nav">
+        <a href="#services">服務項目</a>
+        <a href="#materials">板材色版</a>
+        <a href="#countertops">人造石檯面</a>
+        <a href="#process">合作流程</a>
+        <a href="#faq">常見問題</a>
+        <a href="#contact">聯絡我們</a>
+      </nav>
+    </header>
+
+    <div class="hero-content">
+      <p>工廠直營，設計製作，專業安裝</p>
+      <h1>精準製作<br>安心交付</h1>
+      <div class="actions">
+        <a class="button primary" href="tel:0921307322">預約免費丈量</a>
+        <a class="button" href="#materials">查看材料色版</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="statement">
+    <p>DIRECT FROM FACTORY</p>
+    <h2>專業製作，工廠直營</h2>
+  </section>
+
+  <section class="conversion">
+    <div>
+      <strong>免費初步估價</strong>
+      <span>提供照片與尺寸，先整理預算方向</span>
+    </div>
+    <div>
+      <strong>工廠直營製作</strong>
+      <span>圖面、下料與安裝由單一窗口整合</span>
+    </div>
+    <div>
+      <strong>林口在地服務</strong>
+      <span>住宅、店面與辦公空間皆可洽詢</span>
+    </div>
+    <a href="tel:0921307322">
+      立即預約
+      <span>0921 307 322</span>
+    </a>
+  </section>
+
+  <section class="section" id="services">
+    <div class="heading">
+      <div>
+        <p class="eyebrow">OUR SERVICES</p>
+        <h2>從設計到安裝，一站完成</h2>
+      </div>
+      <p>單一窗口整合設計、報價、生產與施工。每個階段都有清楚圖面與確認流程。</p>
+    </div>
+
+    <div class="services">
+      <article class="service">
+        <span>01</span>
+        <h3>系統櫃設計</h3>
+        <p>依空間尺寸、收納需求與生活習慣規劃配置。</p>
+      </article>
+      <article class="service">
+        <span>02</span>
+        <h3>板材精準加工</h3>
+        <p>工廠安排裁切、封邊、鑽孔與出貨核對。</p>
+      </article>
+      <article class="service">
+        <span>03</span>
+        <h3>現場安裝</h3>
+        <p>核對水平、門縫、五金與櫃體收邊。</p>
+      </article>
+      <article class="service">
+        <span>04</span>
+        <h3>住宅商空訂製</h3>
+        <p>住宅、店面、辦公室與建案系統櫃皆可洽詢。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="materials">
+    <div class="heading">
+      <div>
+        <p class="eyebrow">MATERIAL COLLECTION</p>
+        <h2>板材色版</h2>
+      </div>
+      <p>左右滑動比較色系，點選色卡查看四種系統櫃搭配。</p>
+    </div>
+    <div id="materialGroups"></div>
+  </section>
+
+  <section class="dark-section" id="countertops">
+    <div class="section">
+      <div class="heading">
+        <div>
+          <p class="eyebrow">SOLID SURFACE COLLECTION</p>
+          <h2>廚具與中島人造石</h2>
+        </div>
+        <p>每款人造石依品牌、英文名稱與編號分類。</p>
+      </div>
+      <div id="countertopGroups"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="heading">
+      <div>
+        <p class="eyebrow">WHY LONG WEI</p>
+        <h2>報價前先把需求說清楚</h2>
+      </div>
+      <p>尺寸、收納方式與材料逐項確認，讓圖面、報價與完工內容保持一致。</p>
+    </div>
+
+    <div class="benefits">
+      <article class="benefit">
+        <span>01</span>
+        <h3>依空間配置</h3>
+        <p>先看樑柱、插座、門窗與動線，再規劃櫃體尺寸。</p>
+      </article>
+      <article class="benefit">
+        <span>02</span>
+        <h3>材料直接比對</h3>
+        <p>板材與人造石都有獨立色號與空間搭配。</p>
+      </article>
+      <article class="benefit">
+        <span>03</span>
+        <h3>確認再製作</h3>
+        <p>平面配置、3D比例與尺寸核對後安排下料。</p>
+      </article>
+      <article class="benefit">
+        <span>04</span>
+        <h3>完工共同驗收</h3>
+        <p>核對門縫、五金、收邊與現場清潔。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="process-inner">
+      <p class="eyebrow">WORKING PROCESS</p>
+      <h2>六個步驟，完成你的系統櫃</h2>
+
+      <div class="steps">
+        <article class="step">
+          <span>01</span>
+          <h3>現場丈量</h3>
+          <p>核對牆面、樑柱、管線與施工條件。</p>
+        </article>
+        <article class="step">
+          <span>02</span>
+          <h3>平面圖與報價</h3>
+          <p>確認配置、材料、五金與工程範圍。</p>
+        </article>
+        <article class="step">
+          <span>03</span>
+          <h3>簽約與3D設計</h3>
+          <p>確認比例、門片與收納方式。</p>
+        </article>
+        <article class="step">
+          <span>04</span>
+          <h3>圖面尺寸確認</h3>
+          <p>細部核對完成後進入下料流程。</p>
+        </article>
+        <article class="step">
+          <span>05</span>
+          <h3>工廠製作</h3>
+          <p>安排裁切、封邊、鑽孔與進料。</p>
+        </article>
+        <article class="step">
+          <span>06</span>
+          <h3>安裝與驗收</h3>
+          <p>現場組裝、調整、清潔與驗收。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq" id="faq">
+    <div class="heading">
+      <div>
+        <p class="eyebrow">COMMON QUESTIONS</p>
+        <h2>預約前常見問題</h2>
+      </div>
+      <p>先準備空間照片與大約尺寸，再確認丈量與報價順序。</p>
+    </div>
+
+    <details>
+      <summary>初步估價需要準備什麼？</summary>
+      <p>請提供空間照片、長寬高尺寸、櫃體類型、喜歡的色系與預計施工時間。</p>
+    </details>
+    <details>
+      <summary>從確認到生產需要多久？</summary>
+      <p>圖面與尺寸確認後，工廠生產期約 7 至 10 個工作天。</p>
+    </details>
+    <details>
+      <summary>板材與檯面顏色怎麼選？</summary>
+      <p>先左右滑動比較色系，再點選個別色卡查看四種搭配。</p>
+    </details>
+    <details>
+      <summary>住宅以外的空間也承作嗎？</summary>
+      <p>住宅、店面、辦公室與建案系統櫃皆可洽詢。</p>
+    </details>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div>
+        <p class="eyebrow">START YOUR PROJECT</p>
+        <h2>把尺寸與需求交給瓏瑋</h2>
+        <p>準備空間照片、平面尺寸與想要的櫃體類型。</p>
+        <a class="phone" href="tel:0921307322">
+          <span>預約丈量與估價</span>
+          <strong>0921 307 322</strong>
+        </a>
+      </div>
+
+      <div class="checklist">
+        <strong>洽詢前建議準備</strong>
+        <ul>
+          <li>現場空間照片</li>
+          <li>大約長寬高尺寸</li>
+          <li>喜歡的色系或參考圖</li>
+          <li>預計施工時間</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <strong>瓏瑋系統櫃工廠</strong>
+    <p>瓏瑋企業有限公司</p>
+    <p>統一編號 45110869</p>
+    <p>新北市林口區湖北里後湖52之18號</p>
+    <p>電話 0921 307 322</p>
+  </footer>
+
+  <a class="floating" href="tel:0921307322">預約丈量，立即來電</a>
+
+  <div class="modal" id="materialModal">
+    <div class="modal-panel">
+      <div class="modal-top">
+        <div>
+          <small id="modalCode"></small>
+          <h2 id="modalTitle"></h2>
+        </div>
+        <button class="modal-close" id="modalClose" aria-label="關閉">×</button>
+      </div>
+
+      <div class="modal-content">
+        <img class="modal-swatch" id="modalSwatch" alt="">
+        <div class="scene-grid" id="modalScenes"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const materialGroups = [
+      {
+        title: "金屬與質感",
+        items: [
+          ["5456CB","5456cb","青銅岩"],
+          ["4992GD","4992gd","黃銅飛馬座"],
+          ["2528CB","2528cb","坎柏拉灰"],
+          ["D2479AR","d2479ar","印加棕"]
+        ]
+      },
+      {
+        title: "石紋系列",
+        items: [
+          ["F258","f258","黑水韻石"],
+          ["F257","f257","白水韻石"],
+          ["F255","f255","卡拉拉"],
+          ["F256","f256","樂透石"]
+        ]
+      },
+      {
+        title: "純色系列",
+        items: [
+          ["S702H","s702h","羊絨棕"],
+          ["S727H","s727h","焦糖咖"],
+          ["5600 T3","5600-t3","淺銀灰"],
+          ["3203","3203","淺灰"],
+          ["3200","3200","鐵灰"],
+          ["S732H","s732h","夏雨灰"],
+          ["1620","1620","白浮雕"],
+          ["1500","1500","白色"]
+        ]
+      },
+      {
+        title: "木紋系列",
+        items: [
+          ["1187","1187","凡爾賽橡木"],
+          ["5007","5007","摩卡柚木"],
+          ["1183","1183","北美原橡"],
+          ["1348","1348","橡木洗白"]
+        ]
+      }
+    ];
+
+    const countertopGroups = [
+      {
+        title: "白色與淺色系",
+        items: [
+          ["EY510","ey510","Metallic Yukon"],
+          ["SI414","si414","Sanded Icicle"],
+          ["AG612","ag612","Aspen Glacier"],
+          ["PF812","pf812","Pebble Frost"],
+          ["PM832","pm832","Pebble Moon"],
+          ["SM421","sm421","Sanded Cream"],
+          ["AG636","ag636","Aspen Glow"],
+          ["AS644","as644","Aspen Stucco"],
+          ["BW010","bw010","Bright White"],
+          ["SQ019","sq019","Quasar White"],
+          ["SD001","sd001","Dazzling White"],
+          ["SV041","sv041","Natural"],
+          ["MU010","mu010","Ultra Bright"],
+          ["ML612","ml612","Limpio"],
+          ["AS610","as610","Aspen Snow"],
+          ["PC817","pc817","Pebble Coral"],
+          ["PL814","pl814","Pebble Lagoon"],
+          ["SD413","sd413","Sanded Dover"],
+          ["AA625","aa625","Aspen Alder"],
+          ["AG614","ag614","Aspen Gold Rush"],
+          ["PS813","ps813","Pebble Swan"],
+          ["AF611","af611","Aspen Fiesta"]
+        ]
+      },
+      {
+        title: "米色與暖色系",
+        items: [
+          ["SS440","ss440","Sanded Sahara"],
+          ["PC842","pc842","Pebble Chiffon"],
+          ["PF870","pf870","Pebble Flan"],
+          ["PT845","pt845","Pebble TeaRose"],
+          ["PC821","pc821","Pebble Caper"],
+          ["PS854","ps854","Pebble Spinel"],
+          ["PS820","ps820","Pebble Saratoga"],
+          ["PG840","pg840","Pebble Gold"],
+          ["SC475","sc475","Sanded Clay"],
+          ["SC457","sc457","Sanded Chestnut"]
+        ]
+      },
+      {
+        title: "灰色與水磨石系",
+        items: [
+          ["PA860","pa860","Pebble Aqua"],
+          ["AP640","ap640","Aspen Pepper"],
+          ["AG620","ag620","Aspen Grey"],
+          ["SG420","sg420","Sanded Grey"],
+          ["PB852","pb852","Pebble Boulder"],
+          ["SH428","sh428","Sanded Heron"],
+          ["AC629","ac629","Aspen Concrete"],
+          ["ST486","st486","Sanded Taupe"]
+        ]
+      },
+      {
+        title: "深色與彩色系",
+        items: [
+          ["AM633","am633","Aspen Mine"],
+          ["PC855","pc855","Pebble Chocolate"],
+          ["SO064","so064","Oasis"],
+          ["SC052","sc052","California Poppy (N)"],
+          ["SU053","su053","Univers"],
+          ["ON095","on095","Onyx"],
+          ["PB870","pb870","Pebble Blue"],
+          ["QS288","qs288","Quarry Starred (N)"],
+          ["SO423","so423","Sanded Onyx"],
+          ["PE814","pe814","Pebble Ebony"],
+          ["EG595","eg595","Metallic Galaxy"],
+          ["EC596","ec596","Metallic Cosmos"]
+        ]
+      }
+    ];
+
+    function createGroup(group, type) {
+      const wrapper = document.createElement("section");
+      wrapper.className = "material-group";
+
+      const carouselId = type + "-" + group.items[0][1];
+
+      wrapper.innerHTML = `
+        <div class="carousel-header">
+          <h3>${group.title}</h3>
+          <div class="controls">
+            <button data-carousel="${carouselId}" data-direction="-1" aria-label="向左選色">←</button>
+            <button data-carousel="${carouselId}" data-direction="1" aria-label="向右選色">→</button>
+          </div>
+        </div>
+        <div class="carousel" id="${carouselId}"></div>
+        <p class="hint">左右滑動選色，點入查看完整搭配</p>
+      `;
+
+      const carousel = wrapper.querySelector(".carousel");
+
+      group.items.forEach(item => {
+        const [code, slug, name] = item;
+        const card = document.createElement("article");
+
+        card.className = "card";
+        card.tabIndex = 0;
+
+        card.innerHTML = `
+          <div class="card-image">
+            <img
+              src="${type === "material" ? "materials" : "countertops"}/${slug}.webp"
+              alt="${code} ${name}"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-info">
+            <span>${code}</span>
+            <h4>${name}</h4>
+            ${type === "countertop" ? "<small>Staron</small>" : ""}
+          </div>
+          <span class="card-link">
+            查看 4 款${type === "material" ? "櫃體" : "廚房檯面"}參考
+          </span>
+        `;
+
+        card.addEventListener("click", () => openModal(type, code, slug, name));
+        card.addEventListener("keydown", event => {
+          if (event.key === "Enter") {
+            openModal(type, code, slug, name);
+          }
+        });
+
+        carousel.appendChild(card);
+      });
+
+      return wrapper;
+    }
+
+    materialGroups.forEach(group => {
+      document
+        .getElementById("materialGroups")
+        .appendChild(createGroup(group, "material"));
+    });
+
+    countertopGroups.forEach(group => {
+      document
+        .getElementById("countertopGroups")
+        .appendChild(createGroup(group, "countertop"));
+    });
+
+    document.addEventListener("click", event => {
+      const button = event.target.closest("[data-carousel]");
+
+      if (!button) return;
+
+      const track = document.getElementById(button.dataset.carousel);
+      const direction = Number(button.dataset.direction);
+
+      track.scrollBy({
+        left: direction * Math.max(track.clientWidth * 0.82, 280),
+        behavior: "smooth"
+      });
+    });
+
+    const modal = document.getElementById("materialModal");
+    const modalCode = document.getElementById("modalCode");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalSwatch = document.getElementById("modalSwatch");
+    const modalScenes = document.getElementById("modalScenes");
+
+    function openModal(type, code, slug, name) {
+      const isMaterial = type === "material";
+      const folder = isMaterial ? "material-scenes" : "countertop-scenes";
+
+      const scenes = isMaterial
+        ? [
+            ["living","客廳電視櫃"],
+            ["bedroom","臥室衣櫃"],
+            ["entry","玄關收納櫃"],
+            ["kitchen","餐廚收納櫃"]
+          ]
+        : [
+            ["linear","一字型廚具檯面"],
+            ["l-shape","L型廚具檯面"],
+            ["island","中島檯面"],
+            ["sideboard","餐邊櫃檯面"]
+          ];
+
+      modalCode.textContent = code;
+      modalTitle.textContent = name;
+      modalSwatch.src =
+        `${isMaterial ? "materials" : "countertops"}/${slug}.webp`;
+      modalSwatch.alt = `${code} ${name}`;
+
+      modalScenes.innerHTML = scenes.map(scene => `
+        <article class="scene">
+          <img
+            src="${folder}/${scene[0]}/${slug}.webp"
+            alt="${code} ${name} ${scene[1]}"
+            loading="lazy"
+          >
+          <h3>${scene[1]}</h3>
+        </article>
+      `).join("");
+
+      modal.classList.add("open");
+      document.body.classList.add("modal-open");
+    }
+
+    function closeModal() {
+      modal.classList.remove("open");
+      document.body.classList.remove("modal-open");
+    }
+
+    document
+      .getElementById("modalClose")
+      .addEventListener("click", closeModal);
+
+    modal.addEventListener("click", event => {
+      if (event.target === modal) closeModal();
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeModal();
+    });
+  </script>
+</body>
+</html>
